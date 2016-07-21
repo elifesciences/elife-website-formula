@@ -1,0 +1,23 @@
+base:
+    '*':
+        - elife
+        - elife.php7
+        - elife.nginx
+        - elife.nginx-php7
+        - elife.java # required by selenium
+        - elife.selenium
+        - elife.mysql-client
+        - elife.mysql-server
+        - elife.drush
+        - elife.python-dev
+        - elife.nodejs
+        - elife.solr-4
+        - elife.redis-server
+        - elife.phantomjs
+        - elife.galen
+        - elife-website
+        - elife-website.load-tester
+        - elife-website.nginx
+
+    'elife-website-dev':
+        - elife.php-xdebug

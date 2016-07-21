@@ -1,0 +1,10 @@
+imports:
+  - behat.yml.dist
+
+default:
+  extensions:
+    eLife\IsolatedDrupalBehatExtension:
+      db_url: 'mysql://{{ pillar.elife.db_root.username }}:{{ pillar.elife.db_root.password }}@localhost/{{ pillar.elife_website.db_test.name }}'
+    Zalas\Behat\NoExtension:
+      parameters:
+        elife.solr_uri: 'http://localhost:8983/solr/drupal_test'
