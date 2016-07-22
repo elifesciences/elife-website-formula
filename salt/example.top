@@ -9,7 +9,6 @@ base:
         - elife.mysql-client
         - elife.mysql-server
         - elife.drush
-        - elife.python-dev
         - elife.nodejs
         - elife.solr-4
         - elife.redis-server
