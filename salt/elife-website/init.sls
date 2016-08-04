@@ -78,7 +78,7 @@ website-repo:
         - recurse:
             - user
         - require:
-            - git: website-repo
+            - website-repo
 
 local-settings-file:
     file.managed:
@@ -88,7 +88,7 @@ local-settings-file:
         - user: {{ elife.webserver.username }}
         - group: {{ elife.webserver.username }}
         - require:
-            - git: website-repo
+            - website-repo
             - file: website-log-file
 
 setup-drupal:
@@ -102,7 +102,7 @@ setup-drupal:
         {% endif %}
         - require:
             - pkg: website-deps
-            - git: website-repo
+            - website-repo
             - cmd: composer-global-paths
             - file: local-settings-file
             - file: drush-alias-file            
