@@ -78,7 +78,7 @@ website-repo:
         - recurse:
             - user
         - require:
-            - website-repo
+            - builder: website-repo
 
 local-settings-file:
     file.managed:
