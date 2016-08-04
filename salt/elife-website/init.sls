@@ -94,11 +94,11 @@ setup-drupal:
     cmd.run:
         - user: {{ elife.deploy_user.username }}
         - cwd: /srv/website/
-        - name: |
-            set -e
-            ./setup.sh --no-dev
-            drush @website.local registry-rebuild
-            ./update.sh
+        {% if pillar.elife.env == "dev" %}
+        - name: ./create.sh
+        {% else %}
+        - name: ./create.sh --no-dev
+        {% endif %}
         - require:
             - pkg: website-deps
             - git: website-repo
