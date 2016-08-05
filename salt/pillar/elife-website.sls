@@ -11,6 +11,9 @@ elife_website:
         username: drupal
         password: drupal-test-pass
 
-    drupal_user:
-        username: drupal
-        password: drupal-user-pass
+    drupal_users:
+        someone:
+            username: drupal
+            password: drupal-user-pass
+
+

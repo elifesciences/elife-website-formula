@@ -246,24 +246,26 @@ drupal-cron: # Every 20 minutes
         - name: /srv/website/run-cron.sh
         - minute: '*/20'
 
-drupal-user:
+
+{% for name, user in app.drupal_users.items() %}
+drupal-user-{{ name }}:
     cmd.run:
         - user: {{ elife.deploy_user.username }}
         - cwd: /srv/website/web
-        - name: drush user-create "{{ app.drupal_user.username }}" --password "{{ app.drupal_user.password }}"
+        - name: drush user-create "{{ user.username }}" --password "{{ user.password }}"
         - require:
             - cmd: setup-drupal
         - unless:
-            - drush user-information "{{ app.drupal_user.username }}"
+            - drush user-information "{{ user.username }}"
 
-drush-user-details:
+drupal-user-{{ name }}-details:
     cmd.run:
         - user: {{ elife.deploy_user.username }}
         - cwd: /srv/website/web
         - name: |
-            drush user-password "{{ app.drupal_user.username }}" \
-                --password="{{ app.drupal_user.password }}"
-            drush user-add-role "eLife Article Publisher" "{{ app.drupal_user.username }}"
+            drush user-password "{{ user.username }}" \
+                --password="{{ user.password }}"
+            drush user-add-role "eLife Article Publisher" "{{ user.username }}"
         - require:
             - cmd: drupal-user
-
+{% endfor %}
