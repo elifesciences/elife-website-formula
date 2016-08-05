@@ -267,5 +267,5 @@ drupal-user-{{ name }}-details:
                 --password="{{ user.password }}"
             drush user-add-role "eLife Article Publisher" "{{ user.username }}"
         - require:
-            - cmd: drupal-user
+            - cmd: drupal-user-{{ name }}
 {% endfor %}

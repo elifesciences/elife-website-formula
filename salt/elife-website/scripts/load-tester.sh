@@ -18,7 +18,7 @@ basic_import() {
     #for file in elife-article-json/article-json/*.json; do
     for file in `ls elife-article-json/article-json/*.json | sort --numeric-sort --reverse`; do
         echo "POST'ing $file ..."
-        time curl -v -X POST -d @$file http://localhost/api/article.json --header "Authorization: Basic {{ salt['elife.b64encode'](pillar.elife_website.drupal_user.username + ':' + pillar.elife_website.drupal_user.password) }}" --header "Content-Type:application/json" 2>&1 | grep 'HTTP/1.1 '
+        time curl -v -X POST -d @$file http://localhost/api/article.json --header "Authorization: Basic {{ salt['elife.b64encode'](pillar.elife_website.drupal_users.builder.username + ':' + pillar.elife_website.drupal_users.builder.password) }}" --header "Content-Type:application/json" 2>&1 | grep 'HTTP/1.1 '
         printf "\n\n"
     done
 }
