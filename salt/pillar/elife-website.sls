@@ -12,7 +12,7 @@ elife_website:
         password: drupal-test-pass
 
     drupal_users:
-        someone:
+        builder:
             username: drupal
             password: drupal-user-pass
 
