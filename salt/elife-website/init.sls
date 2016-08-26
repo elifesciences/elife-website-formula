@@ -103,7 +103,9 @@ setup-drupal:
         - require:
             - pkg: website-deps
             - website-repo
-            - cmd: composer-global-paths
+            - composer
+            - drush
+            - nodejs
             - file: local-settings-file
             - file: drush-alias-file            
         - unless:
@@ -116,6 +118,7 @@ update-drupal:
         - name: ./update.sh
         - require:
             - cmd: setup-drupal
+            - drush-registry-rebuild
         - unless:
             - test -d /srv/website/web/
 
