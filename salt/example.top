@@ -12,7 +12,7 @@ base:
         - elife.nodejs
         - elife.solr-4
         - elife.redis-server
-        - elife.phantomjs
+        #- elife.phantomjs
         - elife.galen
         - elife-website
         - elife-website.load-tester
