@@ -34,6 +34,8 @@ $conf['elife_environment'] = ELIFE_ENVIRONMENT_PRODUCTION;
 
 {% if pillar.elife.env == "end2end" %}
 $conf['elife_article_source_assets_base_path'] = 'http://end2end-elife-publishing-cdn.s3.amazonaws.com/';
+{% elif pillar.elife.env == "continuumtest" %}
+$conf['elife_article_source_assets_base_path'] = 'http://ct-elife-publishing-cdn.s3.amazonaws.com/';
 {% endif %}
 
 $conf['imagemagick_convert'] = '/usr/bin/convert';
