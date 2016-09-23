@@ -189,12 +189,6 @@ behat-settings-file:
         - source: salt://elife-website/config/behat.yml
         - template: jinja
 
-start-selenium:
-    service.running:
-        - name: selenium
-        - require:
-            - selenium
-
 solr-core:
     cmd.run:
         - user: {{ elife.deploy_user.username }}
