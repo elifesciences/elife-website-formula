@@ -193,9 +193,7 @@ start-selenium:
     service.running:
         - name: selenium
         - require:
-            - cmd: get-selenium
-            - file: get-selenium
-            - pkg: firefox
+            - selenium
 
 solr-core:
     cmd.run:
