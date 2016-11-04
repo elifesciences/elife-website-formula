@@ -155,6 +155,8 @@ website-cache-files:
         - name: /srv/website/cache
         - user: {{ elife.webserver.username }}
         - group: {{ elife.webserver.username }}
+        - dir_mode: 775
+        - file_mode: 664
         - recurse:
             - user
             - group
