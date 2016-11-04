@@ -160,6 +160,7 @@ website-cache-files:
         - recurse:
             - user
             - group
+            - mode
         - require:
             - cmd: setup-drupal
 
