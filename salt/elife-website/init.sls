@@ -164,6 +164,21 @@ website-cache-files:
         - require:
             - cmd: setup-drupal
 
+# this continues to break, so I'll make this directory writable
+website-cache-files-jms-serializer:
+    file.directory:
+        - name: /srv/website/cache/jms_serializer
+        - user: {{ elife.webserver.username }}
+        - group: {{ elife.webserver.username }}
+        - dir_mode: 775
+        - file_mode: 664
+        - recurse:
+            - user
+            - group
+            - mode
+        - require:
+            - website-cache-files
+
 drush-alias-file:
     file.managed:
         - name: /etc/drush/website.aliases.drushrc.php
