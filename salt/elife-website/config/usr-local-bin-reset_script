@@ -1,0 +1,4 @@
+#!/bin/bash
+rm -rf /srv/website
+mysql -uwebsite -pwebsite -e "DROP DATABASE website"
+/usr/local/bin/daily-system-update

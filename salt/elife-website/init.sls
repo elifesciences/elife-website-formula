@@ -282,3 +282,21 @@ drupal-user-{{ name }}-details:
         - require:
             - cmd: drupal-user-{{ name }}
 {% endfor %}
+
+reset-script:
+    file.managed:
+        - name: /usr/local/bin/reset_script
+        - source: salt://elife-website/
+        - mode: 554
+
+{% if pillar.elife.env == 'end2end': %}
+reset-script-cron:
+    cron.present:
+        - name: /usr/local/bin/reset_script
+        - identifier: daily-reset
+        - user: root
+        - hour: 5
+        - minute: 0
+        - require:
+            - reset-script
+{% endif %}
