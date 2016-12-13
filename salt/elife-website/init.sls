@@ -286,7 +286,7 @@ drupal-user-{{ name }}-details:
 reset-script:
     file.managed:
         - name: /usr/local/bin/reset_script
-        - source: salt://elife-website/
+        - source: salt://elife-website/config/usr-local-bin-reset_script
         - mode: 554
 
 {% if pillar.elife.env == 'end2end': %}
