@@ -1,7 +1,0 @@
-#!/bin/bash
-echo "Removing /srv/website"
-rm -rf /srv/website
-echo "Deleting website MySQL database"
-mysql -uwebsite -pwebsite -e "DROP DATABASE website"
-echo "Running Salt to setup the node"
-/usr/local/bin/daily-system-update

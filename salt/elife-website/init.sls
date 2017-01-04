@@ -6,6 +6,14 @@ website-deps:
         - pkgs:
             - imagemagick
 
+{% if pillar.elife.env == 'end2end': %}
+# for performance reasons on article ingestion, better to reset this frequently
+website-db-reset:
+    mysql_database.absent:
+        - name: {{ app.db.name }}
+        - connection_pass: {{ elife.db_root.password }}
+{% endif %}
+
 website-db:
     mysql_database.present:
         - name: {{ app.db.name }}
@@ -283,20 +291,13 @@ drupal-user-{{ name }}-details:
             - cmd: drupal-user-{{ name }}
 {% endfor %}
 
+# deprecated, remove when not present on elife-website--end2end
 reset-script:
-    file.managed:
+    file.absent:
         - name: /usr/local/bin/reset_script
-        - source: salt://elife-website/config/usr-local-bin-reset_script
-        - mode: 554
 
-{% if pillar.elife.env == 'end2end': %}
-reset-script-cron:
-    cron.present:
+    cron.absent:
         - name: /usr/local/bin/reset_script
         - identifier: daily-reset
         - user: root
-        - hour: 5
-        - minute: 0
-        - require:
-            - reset-script
-{% endif %}
+
