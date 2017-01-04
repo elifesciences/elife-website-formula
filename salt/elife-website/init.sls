@@ -19,6 +19,13 @@ website-db-reset:
         - name: rm -rf /srv/website
         - require_in:
             - website-db
+
+website-db-test-reset:
+    mysql_database.absent:
+        - name: {{ app.db_test.name }}
+        - connection_pass: {{ elife.db_root.password }}
+        - require_in:
+            - website-db-test
 {% endif %}
 
 website-db:
