@@ -16,7 +16,7 @@ website-db-reset:
             - website-db
 
     cmd.run:
-        - rm -rf /srv/website
+        - name: rm -rf /srv/website
         - require_in:
             - website-db
 {% endif %}
