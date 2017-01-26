@@ -305,13 +305,4 @@ drupal-user-{{ name }}-details:
             - cmd: drupal-user-{{ name }}
 {% endfor %}
 
-# deprecated, remove when not present on elife-website--end2end
-reset-script:
-    file.absent:
-        - name: /usr/local/bin/reset_script
-
-    cron.absent:
-        - name: /usr/local/bin/reset_script
-        - identifier: daily-reset
-        - user: root
 
