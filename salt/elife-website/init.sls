@@ -140,8 +140,6 @@ update-drupal:
         - name: ./update.sh
         - require:
             - cmd: setup-drupal
-        - unless:
-            - test -d /srv/website/web/
 
 website-public-files:
     file.directory:
