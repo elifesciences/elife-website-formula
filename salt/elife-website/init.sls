@@ -130,8 +130,6 @@ setup-drupal:
             - nodejs
             - file: local-settings-file
             - file: drush-alias-file            
-        - unless:
-            - test -d /srv/website/web/
 
 update-drupal:
     cmd.run:
