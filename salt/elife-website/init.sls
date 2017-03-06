@@ -140,7 +140,6 @@ update-drupal:
         - name: ./update.sh
         - require:
             - cmd: setup-drupal
-            - drush-registry-rebuild
         - unless:
             - test -d /srv/website/web/
 
