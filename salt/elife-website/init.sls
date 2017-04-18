@@ -1,3 +1,4 @@
+## BEWARE that every build may drop the database
 {% set elife = pillar.elife %}
 {% set app = pillar.elife_website %}
 
