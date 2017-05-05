@@ -33,7 +33,7 @@ $conf['elife_environment'] = ELIFE_ENVIRONMENT_PRODUCTION;
 {% endif %}
 
 {% if pillar.elife.env == "end2end" %}
-$conf['elife_article_source_assets_base_path'] = 'http://end2end-elife-publishing-cdn.s3.amazonaws.com/';
+$conf['elife_article_source_assets_base_path'] = 'http://end2end-elife-published.s3.amazonaws.com/articles/';
 {% elif pillar.elife.env == "continuumtest" %}
 $conf['elife_article_source_assets_base_path'] = 'http://ct-elife-publishing-cdn.s3.amazonaws.com/';
 {% endif %}
